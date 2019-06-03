@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  showSecret = false;
   countClicks = [];
   messageButton = 'Display Details';
   display = 'none';
@@ -23,11 +24,17 @@ export class AppComponent {
   doToogle(event: any) {
 
     this.countClicks.push(event.target.textContent);
-    if (this.display === 'none') {
-      this.display = 'block';
+    // if (this.display === 'none') {
+    //   this.display = 'block';
+    //   this.messageButton = 'Hide Details';
+    // } else {
+    //   this.display = 'none';
+    //   this.messageButton = 'Display Details';
+    // }
+    this.showSecret = !this.showSecret
+    if (this.showSecret) {
       this.messageButton = 'Hide Details';
     } else {
-      this.display = 'none';
       this.messageButton = 'Display Details';
     }
   }

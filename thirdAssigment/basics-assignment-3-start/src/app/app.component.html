@@ -18,7 +18,8 @@
     <div class="col-xs-12">
       <button class="btn btn-primary" (click)="doToogle($event)"> {{ messageButton }}</button>
       <hr/>
-      <p [ngStyle]="{'display' : getDisplay()}">Secret Password = tuna</p>
+      <!-- <p *ngIf="showSecret" [ngStyle]="{'display' : getDisplay()}">Secret Password = tuna</p> -->
+      <p *ngIf="showSecret">Secret Password = tuna</p>
       <p *ngFor="let click of countClicks; let i = index" [ngStyle]="{'background-color': getColor(i)}" [ngClass]="{'greaterThanFive' : (i>5)}"> {{ i }} - {{click}}</p>
     </div>
   </div>
