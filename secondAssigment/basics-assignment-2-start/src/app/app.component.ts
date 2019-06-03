@@ -14,6 +14,10 @@ export class AppComponent {
   }
   onUpdateUsername(event: Event) {
       console.log(event.target.value);
-      this.isAllowResetUsername = true;
+      if (event.target.value === '' || event.target.value === undefined || event.target.value == null) {
+        this.isAllowResetUsername = false;
+      } else {
+        this.isAllowResetUsername = true;
+      }
   }
 }
