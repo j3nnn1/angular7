@@ -1,0 +1,32 @@
+<!--The content below is only a placeholder and can be replaced.-->
+
+<div class="container">
+
+  <h3>testing app component, I'm app component</h3>
+
+  <div class="row">
+    <div class="col-xs-12">
+        <input type="text" [(ngModel)]="name">
+        <p> {{name}} </p>
+        <app-servers></app-servers>
+    </div>
+  </div>
+
+
+<hr/>
+  <div>
+    <h3>Databindings (communication between typescript's code and templates)</h3>
+    <ul>
+    <li> One way ( updating server name is one way binding example )</li>
+
+    <li> Two ways</li>
+    </ul>
+  </div>
+<hr/>
+  <div>
+    <h3> String Interpolation vs Property bindings </h3>
+    <ul>
+      <li> Property binding example: I modified in server.component.ts adding a variable and this should be show in the template (square bracket => [] => denoted binding properties => add properties to the dom => when you want add condition to html), like a dinamic data</li>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,57 @@
+<p> <b>Begin Template Servers! </b></p>
+<!-- One way binding editing input -->
+<h4><b> You could edit servername here: </b></h4>
+<input type="text" class="form-control" (input)="onUpdateServerName($event)">
+<br/>
+<h4><b> The Server Name with String interpolation: </b></h4> <p>{{ serverName }}</p>
+<h4><b> Server Name Status with String interpolation: </b></h4><p>{{ serverCreationStatus }}</p>
+<!-- End One way binding editing input -->
+<hr/>
+
+<table>
+  <tr>
+    <td style="padding: 10px;">
+      <!-- Event binding onclick => click -->
+      <button class="btn btn-primary" [disabled]="!allowNewServer" (click)="onCreateServer()"> Add server </button>
+      <!-- End Event binding onclick => click -->
+    </td>
+    <td>
+      <!-- string interpolation vs property binding -->
+      <h4><b> allowNewServer: [String interpolation] </b></h4> <p>{{allowNewServer}}</p>
+      <h4><b> allowNewServer: [Property binding]</b></h4> <p [innerText]="allowNewServer"></p>
+    </td>
+  </tr>
+</table>
+<br/>
+<hr/>
+
+<!-- string interpolation only when you need to write o print sometime, dont mix properties binding and string interpolation -->
+<!-- properties binding -->
+<!-- string interpolation only work in a normal template not dentro de un binding. -->
+<!-- Angular CLI: ng generate component componentName -->
+<!-- ng generate component servers -->
+<!-- manualy generate components => write a post -->
+
+<!-- Two way databinding -->
+<h4><b>Two way bindings</b></h4>
+<input type="text" class="form-control" (input)="onUpdateServerName($event)" [(ngModel)]="serverName">
+<!-- Two way databinding -->
+<hr/>
+
+<h4><b>Directives!</b></h4>
+
+<ol>
+  <li>ngif (estructure directive and start with * and edit the DOM)
+    <div>
+      <!-- DirectivesngIF-->
+      <p *ngIf="serverCreated else noServer"> server was created, server name is {{ serverName }}</p>
+      <ng-template #noServer>
+        <p> No server was created! </p>
+      </ng-template>
+    </div>
+  </li>
+
+</ol>
+<app-server></app-server>
+
+<app-server></app-server>
