@@ -10,7 +10,8 @@ export class RecipesListComponent implements OnInit {
 
   recipes: Recipe[] = [
     // tslint:disable-next-line:max-line-length
-    new Recipe('A test Recipe', 'this is a description', 'https://www.gettyimages.com/detail/photo/cheesy-pepperoni-pizza-royalty-free-image/938742222'),
+    new Recipe('A test Recipe', 'this is a description', 'https://media.gettyimages.com/photos/pizza-picture-id153444470?s=2048x2048'),
+    new Recipe('A test Recipe', 'this is a description', 'https://media.gettyimages.com/photos/pizza-picture-id153444470?s=2048x2048'),
   ];
 
   constructor() { }
