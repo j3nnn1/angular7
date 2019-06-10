@@ -1,15 +1,24 @@
 <div class="container">
-  <app-cockpit></app-cockpit>
+  <!-- () parentesis represent a event -->
+  <app-cockpit
+    (serverCreated)="onServerAdded($event)"
+    (bpCreated)="onBlueprintAdded($event)"
+  ></app-cockpit>
   <hr>
   <div class="row">
     <div class="col-xs-12">
       <app-server-element
         *ngFor="let serverElement of serverElements"
-        [element] ="serverElement"
+        [srvElement] = "serverElement"
       >
+
+      <!-- [srvElement] declare an input to the component server-element -->
+      <!--    (serverCreated)="onServerAdded($event)" /  (blueprintCreated)="onAddBlueprinted($event)" -->
+      <!--  [element] ="serverElement" -->
       <!-- name of the component variable SERVER ELEMENT =  the local variable in component ROOT-->
       <!-- custom properties bindings passing a array trou the server-element to app component. -->
-      <!-- [nameComponentVariableINNER] = "nameComponentVariableATFATHERComponent" -->
+      <!-- [nameComponentVariableCHILD] = "nameComponentVariableATFATHERComponent" -->
+
       </app-server-element>
     </div>
   </div>

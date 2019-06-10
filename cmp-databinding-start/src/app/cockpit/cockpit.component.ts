@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-cockpit',
@@ -7,27 +7,46 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CockpitComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit() {
-  }
   serverElements = [];
   newServerName = '';
   newServerContent = '';
 
-  onAddServer() {
+  // CUSTOM EVENTS
+  // with our own event in the html element
+  // make you own event
+  @Output() serverCreated = new EventEmitter<{ serverName: string, serverContent: string }>();
+  // Output let you pass a variable from child component to father component
+  @Output('bpCreated') blueprintCreated = new EventEmitter<{ serverName: string, serverContent: string }>();
+
+  constructor() {
+  }
+
+  ngOnInit() {
+  }
+  // DEFAULTS EVENTS
+  // with the event click
+  onAddServer(serverData: {serverName: string, serverContent: string}) {
+
+      this.serverCreated.emit({
+        serverName: this.newServerName,
+        serverContent: this.newServerContent
+      });
     // this.serverElements.push({
     //   type: 'server',
-    //   name: this.newServerName,
-    //   content: this.newServerContent
+    //   name: serverData.serverName,
+    //   content: serverData.serverContent
     // });
   }
 
-  onAddBlueprint() {
+  onAddBluePrint(blueprintData: {serverName: string, serverContent: string}) {
+  this.blueprintCreated.emit({
+        serverName: this.newServerName,
+        serverContent: this.newServerContent
+  });
     // this.serverElements.push({
     //   type: 'blueprint',
-    //   name: this.newServerName,
-    //   content: this.newServerContent
+    //   name: blueprintData.serverName,
+    //   content:  blueprintData.serverContent
     // });
   }
 

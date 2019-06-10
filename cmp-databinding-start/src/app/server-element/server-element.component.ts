@@ -9,7 +9,9 @@ export class ServerElementComponent implements OnInit {
 
   // Decorator in class level or in properties level
   // end js object
-  @Input() element: { type: string, name: string,     content: string };
+  // srvElement is a alias
+
+  @Input('srvElement') element: { type: string, name: string,     content: string };
   // end js object
 
   constructor() { }
