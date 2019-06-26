@@ -7,11 +7,17 @@
   <hr>
   <div class="row">
     <div class="col-xs-12">
+      <button class="btn btn-primary" (click)="onChangeFirst()"> Change First Element </button>
+      <button class="btn btn-primary" (click)="onDestroyFirst()"> Destroy First Element </button>
       <app-server-element
         *ngFor="let serverElement of serverElements"
         [srvElement] = "serverElement"
+        [name] = "serverElement.name"
       >
-
+      <p>
+          <strong *ngIf="serverElement.type === 'server'" style="color: red">{{ serverElement.content }}</strong>
+          <em *ngIf="serverElement.type === 'blueprint'">{{ serverElement.content }}</em>
+      </p>
       <!-- [srvElement] declare an input to the component server-element -->
       <!--    (serverCreated)="onServerAdded($event)" /  (blueprintCreated)="onAddBlueprinted($event)" -->
       <!--  [element] ="serverElement" -->
@@ -21,6 +27,18 @@
       <!-- component comunication is key for any project so, bear in mind INPUT and OUTPUT decorator -->
       <!-- own events are key too -->
         <!-- distance between component are too complex to use input or output, when are too distance are another tools like services-->
+      <!-- <ng-content><ng-content> directive to pass data trouh component to view-->
+        <!-- everythings you put in the opening and closing tag de you own component is losts. -->
+        <!-- to avoid this you add ng-content directive -->
+        <!-- lifecily hook -->
+        <!-- a new component is created or instanciated, goes by fases and implement method. -->
+        <!-- ngOnChanges: always when a binding input change -->
+        <!-- ngOnInit:  when the component is initialize, like a constructor -->
+        <!-- ngDoCheck: when you change something in the template and too when you change something-->
+        <!-- ngAfterContentInit: after ng-content has proyected into a view -->
+        <!-- ngAfterViewInit: when view has been rendered -->
+        <!-- ngOnDestroy: when  the object is destroy, is commonly used in cleaning-->
+
       </app-server-element>
     </div>
   </div>

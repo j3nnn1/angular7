@@ -1,11 +1,13 @@
 <div
   class="panel panel-default"
   >
-  <div class="panel-heading">{{ element.name }}</div>
+  <div class="panel-heading"  #heading>{{ name }}</div>
   <div class="panel-body">
-    <p>
-      <strong *ngIf="element.type === 'server'" style="color: red">{{ element.content }}</strong>
-      <em *ngIf="element.type === 'blueprint'">{{ element.content }}</em>
-    </p>
+    <!-- <ng-content><ng-content> directive to pass data trouh component to view, put here content from app component between tags-->
+    <!-- everythings you put in the opening and closing tag de you own component is losts. -->
+    <!-- to avoid this you add ng-content directive -->
+    <!-- this is a way to projected data avoid crossite scripting-->
+    <ng-content></ng-content>
+    <!-- //from outside put this p here -->
   </div>
 </div>

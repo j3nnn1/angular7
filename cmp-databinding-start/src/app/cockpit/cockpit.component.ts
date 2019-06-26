@@ -21,8 +21,12 @@ export class CockpitComponent implements OnInit {
 
 
   // @ViewChild(Cock) serverContentInput;
-  @ViewChild('serverContentInput') serverContentInput: ElementRef; // the teacher dont recommend this way for access to dom html element
-
+  @ViewChild('serverContentInput', null) serverContentInput: ElementRef;
+  // the teacher dont recommend this way for access to dom html element
+  // with local reference you should not change this properties
+  // with local reference is similar two way binding,
+  // you could fetch from model and pull response
+  // with local reference not directly edit the dom. or pass data
   constructor() {
   }
 
