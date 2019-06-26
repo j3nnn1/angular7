@@ -7,7 +7,7 @@ import {
   SimpleChanges,
   DoCheck,
   AfterContentInit,
-  AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy, ViewChild
+  AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy, ViewChild, ContentChild
 } from '@angular/core';
 
 @Component({
@@ -28,7 +28,8 @@ export class ServerElementComponent implements OnInit,
   AfterViewInit,
   AfterViewChecked,
   OnDestroy,
-  ViewChild
+  ViewChild,
+  ContentChild
 {
 
   // Decorator in class level or in properties level
@@ -40,6 +41,7 @@ export class ServerElementComponent implements OnInit,
 
   @Input('') name: string;
   @ViewChild('heading', null) header: ElementRef;
+  @ContentChild('contentParagraph', {static: true}) paragraph: ElementRef;
 
   constructor() {
 
@@ -53,6 +55,7 @@ export class ServerElementComponent implements OnInit,
   ngOnInit() {
     console.log('ngOnInit is called in the console');
     console.log('textcontent: ' + this.header.nativeElement.textContent);
+    console.log('contentView: ' + this.paragraph.nativeElement.textContent);
   }
   ngDoCheck(): void {
     // this cost a lot of perfomance when you doo need something manually
@@ -60,6 +63,7 @@ export class ServerElementComponent implements OnInit,
   }
   ngAfterContentInit() {
     console.log('ngAfterContent Init');
+    console.log('contentView: ' + this.paragraph.nativeElement.textContent);
   }
   ngAfterContentChecked( ) {
     console.log('ngAfterContentChecked Init');
