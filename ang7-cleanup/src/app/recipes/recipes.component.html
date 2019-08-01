@@ -4,7 +4,7 @@
 <div class="row ">
   <div class="col-xs-5">
     <app-recipes-list
-    (recipeWasSelected)="selectedRecipe = $event" )>
+    (recipeWasSelected)="selectedRecipe = $event">
     </app-recipes-list>
   </div>
 
@@ -13,7 +13,7 @@
       *ngIf="selectedRecipe; else infoText"
       [recipe]="selectedRecipe">
 
-      <ng-template #infoText> Please select a recipe! </ng-template>
+      <ng-template #infoText> Please select a recipe </ng-template>
     </app-recipes-details>
   </div>
 </div>
