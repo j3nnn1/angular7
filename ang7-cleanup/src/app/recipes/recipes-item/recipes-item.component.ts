@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import {Component, OnInit, Input, EventEmitter, Output} from '@angular/core';
 import { Recipe } from '../recipe.model';
 /* /home/j3nnn1/git/angular7/ang7-cleanup/src/app/recipes/recipe.model.ts
 /home/j3nnn1/git/angular7/ang7-cleanup/src/app/recipes/recipes-item/recipes-item.component.ts */
@@ -14,9 +14,14 @@ export class RecipesItemComponent implements OnInit {
   // passing data from list to item from one component to another with property binding
   // this is the receiver
   @Input() recipe: Recipe;
+  @Output() recipeSelected = new EventEmitter<void>();
   constructor() { }
 
   ngOnInit() {
   }
+  // listen this event from outside.. this mean from html..
 
+  onSelected() {
+      this.recipeSelected.emit();
+  }
 }

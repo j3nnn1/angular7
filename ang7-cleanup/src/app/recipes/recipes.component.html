@@ -3,10 +3,17 @@
 </p>
 <div class="row ">
   <div class="col-xs-5">
-    <app-recipes-list>
+    <app-recipes-list
+    (recipeWasSelected)="selectedRecipe = $event" )>
     </app-recipes-list>
   </div>
+
   <div class="col-xs-7">
-    <app-recipes-details></app-recipes-details>
+    <app-recipes-details
+      *ngIf="selectedRecipe; else infoText"
+      [recipe]="selectedRecipe">
+
+      <ng-template #infoText> Please select a recipe! </ng-template>
+    </app-recipes-details>
   </div>
 </div>

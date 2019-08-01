@@ -18,7 +18,10 @@
 <!--      </span>-->
 <!--    </a>-->
      <!-- this is the sender component passing model recipe -->
-      <app-recipes-item *ngFor="let recipeEl of recipes" [recipe]="recipeEl"></app-recipes-item>
+      <app-recipes-item
+        *ngFor="let recipeEl of recipes"
+        [recipe]="recipeEl"
+        (recipeSelected)="onRecipeSelected(recipeEl)"></app-recipes-item>
   </div>
 </div>
 
