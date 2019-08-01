@@ -1,0 +1,38 @@
+<div class="row">
+  <div class="col-xs-12">
+    <p>Add new Servers or blueprints!</p>
+    <label>Server Name</label>
+    <input
+      type="text"
+      class="form-control"
+      #serverNameInput
+      >
+    <!-- two way binding could be use like local references -->
+    <!-- input servername => [(ngModel)]="newServerName" -->
+    <!-- LOCAL REFERENCE only could be used in the template, not in the typescript code -->
+    <!-- LOCAL REFERENCE only let access to html element in the template-->
+
+    <label>Server Content</label>
+<!--    <input -->
+<!--      type="text" -->
+<!--      class="form-control" -->
+<!--      [(ngModel)]="newServerContent">-->
+    <input
+          type="text"
+          class="form-control"
+          #serverContentInput
+    >
+    <!-- send data from the cockpit to the app component -->
+    <!-- ERROR TypeError: _co.onServerAdded is not a function -->
+    <br>
+    <button
+      class="btn btn-primary"
+      (click)="onAddServer(serverNameInput)">Add Server</button>
+<!--    <button EXAMPLE TWO WAY BINDINGS REFERENCE-->
+<!--      class="btn btn-primary" EXAMPLE TWO WAY BINDINGS REFERENCE-->
+<!--      (click)="onAddBluePrint($event)">Add Server Blueprint</button> EXAMPLE TWO WAY BINDINGS REFERENCE -->
+    <button
+       class="btn btn-primary"
+       (click)="onAddBluePrint(serverNameInput)">Add Server Blueprint</button>
+  </div>
+</div>
