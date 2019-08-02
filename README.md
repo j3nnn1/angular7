@@ -16,6 +16,9 @@ iniciar servidor
 ng  serve
 ```
 =======
+
+npm install
+
 # angular 8
 ## ANG-73 
 
@@ -28,3 +31,6 @@ use
 
 
 This is a temporary adjustment which will NOT be required anymore once Angular 9 is released!
+
+
+ng generate directive better-highlight
