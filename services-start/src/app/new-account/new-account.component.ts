@@ -11,8 +11,8 @@ import {AccountService} from '../account.service';
 export class NewAccountComponent {
   @Output() accountAdded = new EventEmitter<{name: string, status: string}>();
 
-  constructor(private LoggingService: LoggingService,
-              private AccountService: AccountService) {
+  constructor(private loggingService: LoggingService,
+              private accountService: AccountService) {
 
   }
 
@@ -21,8 +21,8 @@ export class NewAccountComponent {
     //   name: accountName,
     //   status: accountStatus
     // });
-    this.LoggingService.logStatusChange(accountStatus);
-    this.AccountService.addAccount({name: accountName, status: accountStatus});
+    // this.LoggingService.logStatusChange(accountStatus);
+    this.accountService.addAccount({name: accountName, status: accountStatus});
     // manually
     // const service =  new LoggingService();
     // service.logStatusChange(accountStatus);
