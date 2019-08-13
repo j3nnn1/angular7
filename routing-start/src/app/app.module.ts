@@ -16,7 +16,11 @@ import {RouterModule, Routes} from '@angular/router';
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'users', component: UsersComponent},
+  {path: 'user/:id/:name', component: UserComponent},
+  {path: 'users/:id/:name', component: UserComponent},
   {path: 'servers', component: ServersComponent},
+  {path: 'servers/:id', component: ServerComponent},
+  {path: 'servers/:id/edit', component: EditServerComponent},
   // structure in angular: path dont add / in the value
   // registring the route in this same file
 ];
