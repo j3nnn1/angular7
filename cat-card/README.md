@@ -104,9 +104,9 @@ https://docs.thecatapi.com/authentication
 
      # Agregar boton en la vista principal y agregar filtro con http client de angular
 
- # 04 Cambiar todos los request realizados con http client a OpenApi 
+ # 04 Cambiar todos los request realizados con http client a OpenApi, Agregar librerías de terceros.
 
- # 05 Pruebas 
+ # 05 Pruebas y DevTools
 
      # Contador de like
 
