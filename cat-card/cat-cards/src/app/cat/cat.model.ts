@@ -1,7 +1,7 @@
 export class Cat {
 
   public id: string;
-  public url: string;
+  public pictureUrl: string;
   public width: number;
   public height: number;
   // this is optional when you search with categories
@@ -11,10 +11,11 @@ export class Cat {
 
   // basic blueprints..
 
-  constructor(id: string, url: string, width: number, height: number) {
+  constructor(id: string, url: string, width: number, height: number, name: string, categorie: number, categorieName: string) {
     this.id = id;
-    this.url = url;
+    this.pictureUrl = url;
     this.width = width;
     this.height = height;
   }
+
 }

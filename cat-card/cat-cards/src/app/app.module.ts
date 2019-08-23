@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { CardComponent } from './card/card.component';
 import {FormsModule} from '@angular/forms';
 import {BrowserAnimationsModule, NoopAnimationsModule} from '@angular/platform-browser/animations';
+import { CatComponent } from './cat/cat.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    CardComponent
+    CardComponent,
+    CatComponent
   ],
   imports: [
     BrowserModule,
