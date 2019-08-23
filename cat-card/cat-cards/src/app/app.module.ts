@@ -4,10 +4,11 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CardComponent } from './card/card.component';
-import {FormsModule} from '@angular/forms';
-import {BrowserAnimationsModule, NoopAnimationsModule} from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule, NoopAnimationsModule} from '@angular/platform-browser/animations';
 import { CatComponent } from './cat/cat.component';
-
+import { CatService } from './cat/cat.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,9 +21,10 @@ import { CatComponent } from './cat/cat.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
-    NoopAnimationsModule
+    NoopAnimationsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [CatService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
