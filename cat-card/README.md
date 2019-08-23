@@ -96,6 +96,18 @@ https://docs.thecatapi.com/authentication
 
      # Agregar en la vista principal la ruta para el componente Agregar gatito
 
-     # Agregar nuevo componente y formulario para agregar y guardar un gatito
+     # Agregar nuevo componente, formulario para agregar y guardar un gatito
 
+ # 03 Routing, Services, Modelos e interfaces. 
 
+     # Agregar nuevo componente de inventario y agregar la ruta a este componente
+
+     # Agregar boton en la vista principal y agregar filtro con http client de angular
+
+ # 04 Cambiar todos los request realizados con http client a OpenApi 
+
+ # 05 Pruebas 
+
+     # Contador de like
+
+     # karma testing formulario
