@@ -9,12 +9,14 @@ import { BrowserAnimationsModule, NoopAnimationsModule} from '@angular/platform-
 import { CatComponent } from './cat/cat.component';
 import { CatService } from './cat/cat.service';
 import { HttpClientModule } from '@angular/common/http';
+import { UnlessDirective } from './unless.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     CardComponent,
-    CatComponent
+    CatComponent,
+    UnlessDirective
   ],
   imports: [
     BrowserModule,
