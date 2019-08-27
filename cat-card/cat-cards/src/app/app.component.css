@@ -26,7 +26,23 @@ Tinder Template by Miami
   padding: 10px 20px;
   position: relative;
 }
+.theader i.fa-plus-square {
+  color: #c0c0c0;
+  font-size: 40px;
+  display: inline-block;
+  float: right;
+  padding: 10px 20px;
+  position: relative;
+}
 .theader i.fa-cog {
+  color: #c0c0c0;
+  font-size: 40px;
+  display: inline-block;
+  float: left;
+  padding: 10px 20px;
+  position: relative;
+}
+.theader i.fa-search {
   color: #c0c0c0;
   font-size: 40px;
   display: inline-block;
