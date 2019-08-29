@@ -10,13 +10,17 @@ import { CatComponent } from './cat/cat.component';
 import { CatService } from './cat/cat.service';
 import { HttpClientModule } from '@angular/common/http';
 import { UnlessDirective } from './unless.directive';
+import { CatAddComponent } from './cat-add/cat-add.component';
+import { CatDetailsComponent } from './cat-details/cat-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CardComponent,
     CatComponent,
-    UnlessDirective
+    UnlessDirective,
+    CatAddComponent,
+    CatDetailsComponent
   ],
   imports: [
     BrowserModule,
