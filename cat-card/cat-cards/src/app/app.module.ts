@@ -14,6 +14,7 @@ import { CatAddComponent } from './cat-add/cat-add.component';
 import { CatDetailsComponent } from './cat-details/cat-details.component';
 import { CatHeaderComponent } from './cat-header/cat-header.component';
 import { CatControlsComponent } from './cat-controls/cat-controls.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { CatControlsComponent } from './cat-controls/cat-controls.component';
     CatAddComponent,
     CatDetailsComponent,
     CatHeaderComponent,
-    CatControlsComponent
+    CatControlsComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
