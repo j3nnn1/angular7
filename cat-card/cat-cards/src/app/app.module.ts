@@ -12,6 +12,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { UnlessDirective } from './unless.directive';
 import { CatAddComponent } from './cat-add/cat-add.component';
 import { CatDetailsComponent } from './cat-details/cat-details.component';
+import { CatHeaderComponent } from './cat-header/cat-header.component';
+import { CatControlsComponent } from './cat-controls/cat-controls.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { CatDetailsComponent } from './cat-details/cat-details.component';
     CatComponent,
     UnlessDirective,
     CatAddComponent,
-    CatDetailsComponent
+    CatDetailsComponent,
+    CatHeaderComponent,
+    CatControlsComponent
   ],
   imports: [
     BrowserModule,
