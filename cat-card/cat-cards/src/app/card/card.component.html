@@ -1,10 +1,11 @@
-<div class="tphoto"
+<div
      [@cardAnimator]="animationState"
      (@cardAnimator.done)="resetAnimationState($event)"
      (swipeleft)='startAnimation("swipeleft")'
      (swiperight)='startAnimation("swiperight")'
 >
-  <app-cat></app-cat>
+<router-outlet> </router-outlet>
+
 </div>
 
     

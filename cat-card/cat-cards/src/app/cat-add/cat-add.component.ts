@@ -7,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CatAddComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+
+  }
 
   ngOnInit() {
+    console.log('desde la clase add cat');
   }
 
 }
