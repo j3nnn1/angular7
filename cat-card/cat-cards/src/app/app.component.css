@@ -3,10 +3,10 @@
   overflow-x:hidden;
 }
 .tbg {
-  /*height: 720px;*/
+  height: 720px;
   /*width: 400px;*/
   width: 30%;
-  height: 40%;
+  /*height: 90%;*/
   background-color: #fff;
   margin: 0 auto;
   border: 1px solid #c0c0c0;

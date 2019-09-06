@@ -16,7 +16,7 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 ## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+VRun `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
 ## Running end-to-end tests
 
@@ -33,3 +33,13 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
     <app-cat-controls>
 <app-component>
 
+
+
+install --save @angular/material @angular/cdk @angular/animations)
+ng add @angular/material
+
+agregar en /code/angular7/cat-card/cat-cards/src/app/app.module.ts
+los nuevos modulos en ngModules -> import
+import {MatButtonModule} from '@angular/material/button';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatInput, MatInputModule} from "@angular/material";

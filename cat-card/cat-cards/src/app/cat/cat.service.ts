@@ -37,4 +37,13 @@ export class CatService {
         }));
         this.isPictureUrlAccesible = true;
   }
+  getCat(catId: number) {
+       return { id: 'wishy',
+         pictureUrl: 'dsdsd',
+         url: 'ddsdsd',
+         width: 333,
+         height: 200, name: 'test', lastname: 'kkkk test',
+         categorie: 2,
+         categorieName: 'supercalifragilistico'};
+  }
 }

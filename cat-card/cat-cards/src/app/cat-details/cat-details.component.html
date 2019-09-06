@@ -1,1 +1,28 @@
 <p>cat-details works!</p>
+<style>.example-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.example-container > * {
+  width: 100%;
+}
+</style>
+  <p class="example-container">
+    <br/>
+    <mat-form-field>
+      <mat-label> frase cliché </mat-label>
+      <input matInput placeholder="Just a placeholder" value="{{ cat.name }}">
+    </mat-form-field>
+    <br/>
+
+    <mat-form-field>
+    <input matInput placeholder="Nombre" value="{{ cat.name }}">
+    </mat-form-field>
+
+    <br/>
+    <mat-form-field>
+    <textarea matInput placeholder="Descripcion" value="{{ cat.name }}"></textarea>
+    </mat-form-field>
+  </p>
+
