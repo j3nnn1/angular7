@@ -1,4 +1,3 @@
-<p>cat-details works!</p>
 <style>.example-container {
   display: flex;
   flex-direction: column;
@@ -10,19 +9,24 @@
 </style>
   <p class="example-container">
     <br/>
-    <mat-form-field>
-      <mat-label> frase cliché </mat-label>
-      <input matInput placeholder="Just a placeholder" value="{{ cat.name }}">
+    <mat-form-field  appearance="outline">
+      <mat-label> Nombre: </mat-label>
+      <input matInput placeholder="name" value="{{ cat.name }}" class="cat_name">
+      <mat-hint>Nombre</mat-hint>
     </mat-form-field>
     <br/>
 
-    <mat-form-field>
-    <input matInput placeholder="Nombre" value="{{ cat.name }}">
+    <mat-form-field  appearance="outline">
+    <mat-label> Id: </mat-label>
+    <input matInput placeholder="Nombre" value="{{ cat.id }}" class="cat_id">
+    <mat-hint>Id</mat-hint>
     </mat-form-field>
 
     <br/>
-    <mat-form-field>
-    <textarea matInput placeholder="Descripcion" value="{{ cat.name }}"></textarea>
+    <mat-form-field  appearance="outline">
+      <mat-label> Url: </mat-label>
+      <textarea matInput placeholder="Descripcion" value="{{ cat.url }}" class="cat_description"></textarea>
+      <mat-hint>Url</mat-hint>
     </mat-form-field>
   </p>
 

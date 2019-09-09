@@ -2,7 +2,7 @@
 
 import { CatDetailsComponent } from './cat-details.component';
 
-describe('CatDetailsComponent', () => {
+ describe('CatDetailsComponent', () => {
   let component: CatDetailsComponent;
   let fixture: ComponentFixture<CatDetailsComponent>;
 

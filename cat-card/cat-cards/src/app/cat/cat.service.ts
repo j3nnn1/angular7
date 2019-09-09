@@ -38,12 +38,12 @@ export class CatService {
         this.isPictureUrlAccesible = true;
   }
   getCat(catId: number) {
-       return { id: 'wishy',
-         pictureUrl: 'dsdsd',
-         url: 'ddsdsd',
-         width: 333,
-         height: 200, name: 'test', lastname: 'kkkk test',
+       return { id: '2j0',
+         pictureUrl: 'https://cdn2.thecatapi.com/images/2j0.jp',
+         url: 'https://cdn2.thecatapi.com/images/2j0.jpg',
+         width: 400,
+         height: 266, name: ('Nombre del Gato:' + ' 2j0'), lastname: 'kkkk test',
          categorie: 2,
-         categorieName: 'supercalifragilistico'};
+         categorieName: '2j0'};
   }
 }
