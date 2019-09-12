@@ -1,7 +1,16 @@
 <!--<div class="tphoto">-->
-  <img [src]="cat.pictureUrl" title="tphoto" alt="Cat Photo" style="width:100%; "/> <!-- property binding -->
-  <div class="tname">{{cat.name}}, <span class="age">{{cat.categorie}}</span></div> <!-- string interpolation -->
-<!--  <div class="tinfo"><i class="fa fa-book" aria-hidden="true"> 0 </i>-->
-<!--    <i class="fa fa-users" aria-hidden="true"> 0 </i>-->
-<!--  </div>-->
-<!--</div>-->
+<div style="height: 200px;">
+  <img [src]="cat.pictureUrl" title="tphoto" alt="Cat Photo" style="width:100%;"/>   <!-- property binding one way -->
+  <div class="tname">
+    {{cat.name}},                                                                    <!-- string interpolation -->
+    <input #countLikes
+           class="age"
+           value="{{ cat.categorie }} "
+           style="width:10px;" (click)="onPassingLocalReference(countLikes)">        <!-- local references type HTMLInputElement-->
+     <!-- style="width:10px;" (onclick)="onPassingLocalReference(countLikes.value)">      local references type String -->
+     <input class="dislikes" #dislikes/>                                                       <!-- two ways binding -->
+  </div>
+  <div style="text-align: right">
+  <app-cat-controls></app-cat-controls>
+  </div>
+</div>

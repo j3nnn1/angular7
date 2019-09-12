@@ -1,6 +1,6 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, ElementRef, ViewChild} from '@angular/core';
 import { Cat } from './cat.model';
-import {Subject} from 'rxjs';
+import { Subject } from 'rxjs';
 import { CatService } from './cat.service';
 
 @Component({
@@ -8,11 +8,13 @@ import { CatService } from './cat.service';
   templateUrl: './cat.component.html',
   styleUrls: ['./cat.component.css']
   // I will not add providers so cat services is global.. to chewin on it.. if is convenient global o local service
+  // providers: [ "Service" ]
 })
 export class CatComponent implements OnInit {
 
   public cat: Cat;
   private catService: CatService;
+  @ViewChild('countLikes', {static: true}) countLikes: ElementRef;
 
   public cats: Cat[] = [
     {
@@ -57,21 +59,15 @@ export class CatComponent implements OnInit {
     // add button fetch new cats fetch 5 cats and save pagination
     // generate random number to pick
     this.cat = this.cats[1];
-    this.catService.isAccesibleResource(this.cat);
-    this.catService.logInitCatService();
-    // this.parentSubject.subscribe(event => {
-    //  this.startAnimation(event);
-    // });
+    this.catService.getRandomCat();
+    // this.catService.isAccesibleResource(this.cat);
+    // this.catService.logInitCatService();
   }
 
-  startAnimation(state) {
-    if (!this.animationState) {
-      this.animationState = state;
-    }
-  }
-
-  resetAnimationState(state) {
-    this.animationState = '';
-    this.index++;
+  onPassingLocalReference(countLikes: ElementRef) {      // passing the entire HTML element like a string
+      // onPassingLocalReference(countLikes: String) {   // passing the value
+      console.log(countLikes);
+      console.log(this.countLikes.nativeElement.value);  // accesing to the value with native Element option is MUST!!! adding ViewChild
+      console.log(new ElementRef(countLikes));           // you need to do a instance to work with this
   }
 }

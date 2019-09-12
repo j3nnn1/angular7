@@ -1,25 +1,38 @@
-.tno {
+.ti {  /* div circle for info */
   background-color: #fff;
-  height: 120px;
-  width: 120px;
+  height: 25px;
+  width: 25px;
   border-radius: 50%;
   -moz-border-radius: 50%;
   -o-border-radius: 50%;
   -ms-border-radius: 50%;
   position: relative;
   display: inline-block;
-  top: 50px;
-  left: 25px;
+  /* left: 12px;*/
+  /* top: 30px; */
   border: 10px solid #f0f0f0;
 }
-.tno i {
-  color: #ff695b;
-  font-size: 80px;
-  padding: 17px 28px;
+
+.ti .fa-info { /* info */
+  font-size: 12px;
+  /* padding: 15px 20px; */
+  padding-right: 10px;
+  color: #398beb;
 }
-.ti {
+
+.tinfo { font-family: 'Helvetica', sans-serif; }
+
+.tinfo .fa-users, .tinfo .fa-book {
+  color: #c0c0c0;
+  float: right;
+  position: relative;
+  font-size: 12px;
+  padding: 12px;
+}
+
+.tno {  /* div circle for  X or cancel */
   background-color: #fff;
-  height: 50px;
+  height: 40px;
   width: 50px;
   border-radius: 50%;
   -moz-border-radius: 50%;
@@ -27,31 +40,36 @@
   -ms-border-radius: 50%;
   position: relative;
   display: inline-block;
-  left: 12px;
-  top: 30px;
+  /* top: 50px;
+  left: 25px; */
   border: 10px solid #f0f0f0;
 }
-.ti .fa-info {
-  font-size: 23px;
-  padding: 15px 20px;
-  color: #398beb;
+.tno i {
+  color: #ff695b;
+  font-size: 30px;   /* edit here */
+  padding-right: 12px;
+  padding-top: 2px;
+  /* padding: 17px 28px; */
 }
-.tyes {
+
+.tyes {  /* div circle for  heart */
   background-color: #fff;
-  height: 120px;
-  width: 120px;
+  height: 40px;
+  width: 50px;
   border-radius: 50%;
   -moz-border-radius: 50%;
   -o-border-radius: 50%;
   -ms-border-radius: 50%;
   position: relative;
   display: inline-block;
-  top: 48px;
-  left: 0px;
+  /* top: 48px;
+  left: 0px; */
   border: 10px solid #f0f0f0;
 }
-.tyes i {
+.tyes i { /* heart */
   color: #5de19c;
-  font-size: 60px;
-  padding: 35px 30px;
+  font-size: 30px;
+  padding-right: 10px;
+  padding-top: 5px;
+  /* padding: 35px 30px;*/
 }

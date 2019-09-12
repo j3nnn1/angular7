@@ -41,11 +41,3 @@
   float: left;
 }
 .tname .age { font-weight: 200; }
-.tinfo { font-family: 'Helvetica', sans-serif; }
-.tinfo .fa-users, .tinfo .fa-book {
-  color: #c0c0c0;
-  float: right;
-  position: relative;
-  font-size: 24px;
-  padding: 12px;
-}
