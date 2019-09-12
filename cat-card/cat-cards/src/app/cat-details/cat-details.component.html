@@ -1,32 +1,52 @@
-<style>.example-container {
-  display: flex;
-  flex-direction: column;
-}
+<br/>
+<div class="row">
+        <div class=".col-12 .col-sm-6 .col-lg-8">
+        <img src="{{ cat.url }}" style="width: 60%;">
+</div>
 
-.example-container > * {
-  width: 100%;
-}
-</style>
-  <p class="example-container">
-    <br/>
-    <mat-form-field  appearance="outline">
-      <mat-label> Nombre: </mat-label>
-      <input matInput placeholder="name" value="{{ cat.name }}" class="cat_name">
-      <mat-hint>Nombre</mat-hint>
-    </mat-form-field>
+<div class="row" class=".col-12 .col-sm-6 .col-lg-8">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+          <th scope="col"> Nombre: </th>
+          <th scope="col">
+            <mat-form-field  appearance="standard" style="width: 100%" [floatLabel]="auto">
+              <mat-label> Nombre: </mat-label>
+              <input matInput placeholder="Nombre" value="{{ cat.name }}" class="cat_name" required>
+              <mat-hint>Nombre</mat-hint>
+            </mat-form-field>
+          </th>
+        </tr>
+        <tr>
+          <th scope="col"> Id: </th>
+          <td>
+            <mat-form-field  appearance="outline">
+              <mat-label> Id: </mat-label>
+              <input matInput placeholder="Id" value="{{ cat.id }}" class="cat_id" required>
+              <mat-hint>Id</mat-hint>
+            </mat-form-field>
+          </td>
+
+        </tr>
+        </thead>
+        <tr>
+
+          <th scope="col"> URL: </th>
+          <td>
+            <mat-form-field  appearance="outline">
+              <mat-label> Url: </mat-label>
+              <input matInput placeholder="url"  value="{{ cat.url }}" class="cat_description" required>
+              <mat-hint>Url</mat-hint>
+            </mat-form-field>
+          </td>
+        </tr>
+      </table>
+    </div>
+
     <br/>
 
-    <mat-form-field  appearance="outline">
-    <mat-label> Id: </mat-label>
-    <input matInput placeholder="Nombre" value="{{ cat.id }}" class="cat_id">
-    <mat-hint>Id</mat-hint>
-    </mat-form-field>
+
 
     <br/>
-    <mat-form-field  appearance="outline">
-      <mat-label> Url: </mat-label>
-      <textarea matInput placeholder="Descripcion" value="{{ cat.url }}" class="cat_description"></textarea>
-      <mat-hint>Url</mat-hint>
-    </mat-form-field>
-  </p>
+
 

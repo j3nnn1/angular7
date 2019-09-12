@@ -1,6 +1,7 @@
 .tbg{
   /* prevents horizontal scroll bar appearing  */
   overflow-x:hidden;
+  overflow-y:hidden;
 }
 .tbg {
   /* height: 620px; */
@@ -19,8 +20,6 @@
 
 
 .tphoto {
-  width: 350px;
-  height: 350px;
   overflow: hidden;
   margin: 0 auto;
   position: relative;

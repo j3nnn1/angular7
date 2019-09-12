@@ -17,7 +17,7 @@ import { CatControlsComponent } from './cat-controls/cat-controls.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCheckboxModule} from '@angular/material/checkbox';
-import {MatInput, MatInputModule, MatIconModule, MatFormFieldControl} from '@angular/material';
+import {MatInputModule, MatIconModule} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -40,6 +40,7 @@ import {MatInput, MatInputModule, MatIconModule, MatFormFieldControl} from '@ang
     HttpClientModule,
     MatButtonModule, MatCheckboxModule, MatInputModule, MatIconModule
   ],
+  exports: [MatButtonModule, MatCheckboxModule, MatInputModule, MatIconModule],
   providers: [CatService],
   bootstrap: [AppComponent]
 })
