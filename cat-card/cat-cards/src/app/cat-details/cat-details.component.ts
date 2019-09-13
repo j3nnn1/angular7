@@ -28,7 +28,7 @@ export class CatDetailsComponent implements OnInit {
     const id = this.route.snapshot.params.id;
     this.route.params.subscribe(
       (params: Params) => {
-        this.cat = this.catService.getCat(+params.id);
+        this.cat = this.catService.getCatById(+params.id);
       }
     );
     console.log('El id a buscar detalle: ' + id);

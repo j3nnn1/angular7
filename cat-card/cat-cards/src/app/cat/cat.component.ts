@@ -16,36 +16,6 @@ export class CatComponent implements OnInit {
   private catService: CatService;
   @ViewChild('countLikes', {static: true}) countLikes: ElementRef;
 
-  public cats: Cat[] = [
-    {
-      "id": '0',
-      "pictureUrl": "https://cdn2.thecatapi.com/images/28f.jpg",
-      "height": 23,
-      'width': 30,
-      "categorieName": "Wichy Del Valle",
-      "categorie": 1,
-      "name": "Wichy Del Valle"
-    },
-    {
-      "id": '1',
-      "pictureUrl": "https://cdn2.thecatapi.com/images/28f.jpg",
-      "height": 23,
-      'width': 30,
-      "name": "Anastasia monmatre",
-      "categorieName": "Wichy Del Valle",
-      "categorie": 2,
-    },
-    {
-      "id": '2',
-      "pictureUrl": "https://cdn2.thecatapi.com/images/28f.jpg",
-      "height": 23,
-      'width':30,
-      "name": "Federica Isabela",
-      "categorieName": "Wichy Del Valle",
-      "categorie": 3,
-    }
-  ];
-
   public index = 0;
   @Input()
   parentSubject: Subject<any>;
@@ -56,12 +26,8 @@ export class CatComponent implements OnInit {
   }
 
   ngOnInit() {
-    // add button fetch new cats fetch 5 cats and save pagination
-    // generate random number to pick
-    this.cat = this.cats[1];
-    this.catService.getRandomCat();
-    // this.catService.isAccesibleResource(this.cat);
-    // this.catService.logInitCatService();
+    this.cat = this.catService.getCat(); // get template o Model Cat
+    this.fetchNewRandomCat();            // get new cat and fill atributes in Cat Model
   }
 
   onPassingLocalReference(countLikes: ElementRef) {      // passing the entire HTML element like a string
@@ -69,5 +35,17 @@ export class CatComponent implements OnInit {
       console.log(countLikes);
       console.log(this.countLikes.nativeElement.value);  // accesing to the value with native Element option is MUST!!! adding ViewChild
       console.log(new ElementRef(countLikes));           // you need to do a instance to work with this
+  }
+
+  fetchNewRandomCat() {
+      this.catService.getRandomCat().subscribe(
+        (data) => {
+          const randomCat = data.shift();
+          this.cat.id         = randomCat.id;
+          this.cat.pictureUrl = randomCat.url;
+          this.cat.height     = randomCat.height;
+          this.cat.width      = randomCat.width;
+        }
+      );
   }
 }

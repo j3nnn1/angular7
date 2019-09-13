@@ -1,16 +1,19 @@
 <!--<div class="tphoto">-->
-<div style="height: 200px;">
-  <img [src]="cat.pictureUrl" title="tphoto" alt="Cat Photo" style="width:100%;"/>   <!-- property binding one way -->
-  <div class="tname">
-    {{cat.name}},                                                                    <!-- string interpolation -->
-    <input #countLikes
-           class="age"
+<div style="height: 200px;" style="">
+  <img [src]="cat.pictureUrl" title="tphoto" alt="Cat Photo" style="width:100%; height: 100%;" (click)="fetchNewRandomCat()"/><!-- property binding one way -->
+  <div class="tname" >
+    <div style="text-align: right">
+    {{cat.name}} <!-- string interpolation -->
+    </div>
+    <mat-form-field  appearance="standard" style="width: 100%" [floatLabel]="auto">
+    <input matInput #countLikes
+           class="age form-control"
            value="{{ cat.categorie }} "
-           style="width:10px;" (click)="onPassingLocalReference(countLikes)">        <!-- local references type HTMLInputElement-->
+           style="width:20px; display: inline;" (click)="onPassingLocalReference(countLikes)">        <!-- local references type HTMLInputElement-->
      <!-- style="width:10px;" (onclick)="onPassingLocalReference(countLikes.value)">      local references type String -->
-     <input class="dislikes" #dislikes/>                                                       <!-- two ways binding -->
-  </div>
-  <div style="text-align: right">
+    </mat-form-field>
+
+    <div style="text-align: right">
   <app-cat-controls></app-cat-controls>
   </div>
 </div>
