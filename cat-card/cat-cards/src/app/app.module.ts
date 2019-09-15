@@ -19,6 +19,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatInputModule, MatIconModule} from '@angular/material';
 import { MatGridListModule} from '@angular/material';
+import { HighlightDirective } from './highlight.directive';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { MatGridListModule} from '@angular/material';
     CatDetailsComponent,
     CatHeaderComponent,
     CatControlsComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    HighlightDirective
   ],
   imports: [
     BrowserModule,
