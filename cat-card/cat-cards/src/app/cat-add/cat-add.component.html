@@ -1,1 +1,21 @@
-<p>cat-add works!</p>
+<!-- <form (ngSubmit)="onSubmit(f)" #f="ngForm">   &lt;!&ndash; no method neither action &ndash;&gt;-->
+<form (ngSubmit)="onSubmit()" #f="ngForm">
+  <mat-card>
+  <div class="form-group">
+    <label for="catImage"><p><b>Adding a cat image: </b></p></label>
+    <br/>
+    <input id ="catImage"
+           type="file" class="form-control"
+           aria-describedby="CatImageHelp"
+           placeholder="Upload a image"
+           ref="image" accept="image/*"
+           name="catImage"
+           required
+           [ngModel]
+    >
+    <br/>
+    <small id="CatImageHelp" class="form-text text-muted">Upload a png/jpg file.</small>
+  </div>
+    <button class="btn btn-primary" type="submit" [disabled]="!f.valid"> Submit </button>
+  </mat-card>
+</form>

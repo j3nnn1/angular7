@@ -43,3 +43,6 @@ los nuevos modulos en ngModules -> import
 import {MatButtonModule} from '@angular/material/button';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatInput, MatInputModule} from "@angular/material";
+
+
+routerLink ==> directiva angular para navegar por links.

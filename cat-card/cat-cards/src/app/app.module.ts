@@ -20,6 +20,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatInputModule, MatIconModule} from '@angular/material';
 import { MatGridListModule} from '@angular/material';
 import { HighlightDirective } from './highlight.directive';
+import { MatCardModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -42,9 +43,11 @@ import { HighlightDirective } from './highlight.directive';
     NoopAnimationsModule,
     HttpClientModule,
     MatButtonModule, MatCheckboxModule, MatInputModule, MatIconModule,
-    MatGridListModule
+    MatGridListModule,
+    MatCardModule
   ],
-  exports: [MatButtonModule, MatCheckboxModule, MatInputModule, MatIconModule, MatGridListModule],
+  exports: [MatButtonModule, MatCheckboxModule, MatInputModule, MatIconModule, MatGridListModule,
+    MatCardModule],
   providers: [CatService],
   bootstrap: [AppComponent]
 })
