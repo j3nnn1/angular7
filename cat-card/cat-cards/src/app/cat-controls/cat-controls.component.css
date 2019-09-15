@@ -16,7 +16,7 @@
 .ti .fa-info { /* info */
   font-size: 12px;
   /* padding: 15px 20px; */
-  padding-right: 10px;
+  padding-right: 6px;
   color: #398beb;
 }
 
@@ -47,7 +47,7 @@
 .tno i {
   color: #ff695b;
   font-size: 30px;   /* edit here */
-  padding-right: 12px;
+  padding-right: 6px;
   padding-top: 2px;
   /* padding: 17px 28px; */
 }
@@ -69,7 +69,7 @@
 .tyes i { /* heart */
   color: #5de19c;
   font-size: 30px;
-  padding-right: 10px;
+  padding-right: 6px;
   padding-top: 5px;
   /* padding: 35px 30px;*/
 }

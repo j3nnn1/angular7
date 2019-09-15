@@ -1,19 +1,28 @@
 <!--<div class="tphoto">-->
 <div style="height: 200px;" style="">
-  <img [src]="cat.pictureUrl" title="tphoto" alt="Cat Photo" style="width:100%; height: 100%;" (click)="fetchNewRandomCat()"/><!-- property binding one way -->
-  <div class="tname" >
-    <div style="text-align: right">
-    {{cat.name}} <!-- string interpolation -->
-    </div>
-    <mat-form-field  appearance="standard" style="width: 100%" [floatLabel]="auto">
+  <mat-form-field  appearance="standard" style="width: 100%; text-align:right" [floatLabel]="auto">
     <input matInput #countLikes
            class="age form-control"
-           value="{{ cat.categorie }} "
-           style="width:20px; display: inline;" (click)="onPassingLocalReference(countLikes)">        <!-- local references type HTMLInputElement-->
-     <!-- style="width:10px;" (onclick)="onPassingLocalReference(countLikes.value)">      local references type String -->
-    </mat-form-field>
+           value="Random Cat Local Reference"
+           style="text-align: center"
+           (click)="onPassingLocalReference(countLikes)"> <!-- local references type HTMLInputElement-->
+    <!-- style="width:10px;" (onclick)="onPassingLocalReference(countLikes.value)">      local references type String -->
+  </mat-form-field>
+  <img [src]="cat.pictureUrl" title="tphoto" alt="Cat Photo" style="width:100%; height: 100%;" (click)="fetchNewRandomCat()"/><!-- property binding one way -->
+  <div class="tname" >
+    <mat-grid-list cols="4" rowHeight="100px">                                  <!-- directives list elements from catComponent -->
+      <mat-grid-tile
+        *ngFor="let tile of tiles"
+        [colspan]="tile.cols"
+        [rowspan]="tile.rows"
+        [style.background]="tile.color">
+        {{tile.text}}                                                           <!-- string interpolation -->
+      </mat-grid-tile>
+    </mat-grid-list>
 
-    <div style="text-align: right">
+
+
+    <div style="text-align: center">
   <app-cat-controls></app-cat-controls>
   </div>
 </div>

@@ -18,6 +18,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatInputModule, MatIconModule} from '@angular/material';
+import { MatGridListModule} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -38,9 +39,10 @@ import {MatInputModule, MatIconModule} from '@angular/material';
     FormsModule,
     NoopAnimationsModule,
     HttpClientModule,
-    MatButtonModule, MatCheckboxModule, MatInputModule, MatIconModule
+    MatButtonModule, MatCheckboxModule, MatInputModule, MatIconModule,
+    MatGridListModule
   ],
-  exports: [MatButtonModule, MatCheckboxModule, MatInputModule, MatIconModule],
+  exports: [MatButtonModule, MatCheckboxModule, MatInputModule, MatIconModule, MatGridListModule],
   providers: [CatService],
   bootstrap: [AppComponent]
 })
