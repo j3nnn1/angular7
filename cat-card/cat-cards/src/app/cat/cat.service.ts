@@ -6,17 +6,26 @@ import {Observable, Subscription} from 'rxjs';
 import { map } from 'rxjs/operators';
 
 
-@Injectable({providedIn: 'root'})
 
+
+
+
+export interface Voting {
+  image_id: string;
+  value: number;
+  sub_id: string;
+}
+@Injectable({providedIn: 'root'})
 // {
 //  providedIn: 'root' // this is important because this denote
 //  if will use the same instance in this case will use another instance diferent from root
 // }
-
 export class CatService {
 
   private defaultPictureUrl = '/assets/cat.jgp';
   private randomCatUrl      = 'https://api.thecatapi.com/v1/images/search';
+  private votingCatUrl      = 'https://api.thecatapi.com/v1/votes';
+  private userVote: Voting;
 
   private httpOptions = {
       headers: new HttpHeaders({'x-api-key': 'DEMO-API-KEY', 'Access-Control-Allow-Origin': '*' }),
@@ -118,5 +127,15 @@ export class CatService {
       'https://api.thecatapi.com/v1/images/upload',
            formData,
       this.httpOptions);
+  }
+  // https://api.thecatapi.com/v1/votes
+  // get with auth key to get my votes
+  votingCat(userVote: Voting) {
+
+    return this.http.post(
+        this.votingCatUrl,
+        userVote,
+        this.httpOptions
+    );
   }
 }
