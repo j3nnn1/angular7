@@ -46,3 +46,13 @@ import {MatInput, MatInputModule} from "@angular/material";
 
 
 routerLink ==> directiva angular para navegar por links.
+
+
+Otras apis publicas:
+===================
+
+https://cataas.com/#/
+
+https://cataas.com/#/about
+
+https://cataas.com/cat/says/thanks

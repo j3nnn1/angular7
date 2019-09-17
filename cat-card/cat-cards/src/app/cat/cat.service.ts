@@ -19,10 +19,7 @@ export class CatService {
   private randomCatUrl      = 'https://api.thecatapi.com/v1/images/search';
 
   private httpOptions = {
-      headers: new HttpHeaders({
-        'Access-Control-Allow-Origin': '*',
-        'x-api-key': 'DEMO-API-KEY'
-      }),
+      headers: new HttpHeaders({'x-api-key': 'DEMO-API-KEY', 'Access-Control-Allow-Origin': '*' }),
     // observe: 'response' ??
   };
 
@@ -111,5 +108,15 @@ export class CatService {
   }
   getCat() {
     return this.cat;
+  }
+
+  uploadCat(file: File) {
+    const formData = new FormData();
+    formData.append('file', file);
+
+    return this.http.post(
+      'https://api.thecatapi.com/v1/images/upload',
+           formData,
+      this.httpOptions);
   }
 }

@@ -12,7 +12,15 @@
            name="catImage"
            required
            [ngModel]
+           #uploadedImage="ngModel"
+           (change)="onFilePicked($event)"
     >
+    <br/>
+
+    <span> </span>
+    <div class="alert alert-danger" *ngIf="error" style="font-size: 10px;"> <p>{{ this.error }} </p></div>
+    <div class="alert alert-success" *ngIf="message" style="font-size: 10px;"> <p>{{ this.message }} </p></div>
+    <br/>
     <br/>
     <small id="CatImageHelp" class="form-text text-muted">Upload a png/jpg file.</small>
   </div>
