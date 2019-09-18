@@ -1,20 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Cat } from './cat.model';
 import {HttpClient, HttpHeaders, HttpClientModule} from '@angular/common/http';
-import { CatInterface } from './cat.interface';
+import { CatInterface } from './response/cat.interface';
+import { Voting } from './requests/voting.interface';
 import {Observable, Subscription} from 'rxjs';
 import { map } from 'rxjs/operators';
 
 
-
-
-
-
-export interface Voting {
-  image_id: string;
-  value: number;
-  sub_id: string;
-}
 @Injectable({providedIn: 'root'})
 // {
 //  providedIn: 'root' // this is important because this denote
@@ -26,7 +18,6 @@ export class CatService {
   private randomCatUrl      = 'https://api.thecatapi.com/v1/images/search';
   private votingCatUrl      = 'https://api.thecatapi.com/v1/votes';
   private userVote: Voting;
-
   private httpOptions = {
       headers: new HttpHeaders({'x-api-key': 'DEMO-API-KEY', 'Access-Control-Allow-Origin': '*' }),
     // observe: 'response' ??
