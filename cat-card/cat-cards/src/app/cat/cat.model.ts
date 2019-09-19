@@ -11,7 +11,7 @@ export class Cat {
 
   // basic blueprints..
 
-  constructor(id: string, url: string, width: number, height: number, name: string, categorie: number, categorieName: string) {
+  constructor(id: string, url: string, width: number, height: number, name?: string, categorie?: number, categorieName?: string) {
     this.id = id;
     this.pictureUrl = url;
     this.width = width;

@@ -13,7 +13,7 @@ import { UnlessDirective } from './unless.directive';
 import { CatAddComponent } from './cat-add/cat-add.component';
 import { CatDetailsComponent } from './cat-details/cat-details.component';
 import { CatHeaderComponent } from './cat-header/cat-header.component';
-import { CatControlsComponent } from './cat-controls/cat-controls.component';
+import { CatControlsComponent } from './cat/cat-controls/cat-controls.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCheckboxModule} from '@angular/material/checkbox';
@@ -21,6 +21,7 @@ import {MatInputModule, MatIconModule} from '@angular/material';
 import { MatGridListModule} from '@angular/material';
 import { HighlightDirective } from './highlight.directive';
 import { MatCardModule } from '@angular/material';
+import { SummaryComponent } from './cat/summary/summary.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { MatCardModule } from '@angular/material';
     CatHeaderComponent,
     CatControlsComponent,
     NotFoundComponent,
-    HighlightDirective
+    HighlightDirective,
+    SummaryComponent
   ],
   imports: [
     BrowserModule,

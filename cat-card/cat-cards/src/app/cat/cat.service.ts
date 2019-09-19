@@ -1,11 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Cat } from './cat.model';
 import {HttpClient, HttpHeaders, HttpClientModule} from '@angular/common/http';
-import { CatInterface } from './response/cat.interface';
-import { Voting } from './requests/voting.interface';
-import {Observable, Subscription} from 'rxjs';
-import { map } from 'rxjs/operators';
-
+import { CatInterface } from './interfaces/cat.interface';
+import { Voting } from './interfaces/voting.interface';
 
 @Injectable({providedIn: 'root'})
 // {
@@ -27,13 +24,13 @@ export class CatService {
   public cat: Cat;
   public cats: Cat[] = [
     {
-      "id": '0',
-      "pictureUrl": "https://cdn2.thecatapi.com/images/28f.jpg",
+      "id": 'Loading Cat',
+      "pictureUrl": "/assets/cat.jpg",
       "height": 23,
       'width': 30,
-      "categorieName": "Gatito Random",
+      "categorieName": "Loading Cat",
       "categorie": 1,
-      "name": "Gatito Random"
+      "name": "Loading Cat"
     }
   ];
 

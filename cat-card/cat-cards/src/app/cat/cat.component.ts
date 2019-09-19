@@ -1,15 +1,8 @@
-import {Component, Input, OnInit, ElementRef, ViewChild} from '@angular/core';
+import {Component, Input, OnInit, ElementRef, ViewChild, OnDestroy} from '@angular/core';
 import { Cat } from './cat.model';
-import { Subject } from 'rxjs';
+import {Subject, Subscription, Observable} from 'rxjs';
 import { CatService } from './cat.service';
-
-
-export interface Tile {
-  color: string;
-  cols: number;
-  rows: number;
-  text: string;
-}
+import { interval } from 'rxjs';
 
 @Component({
   selector: 'app-cat',
@@ -18,33 +11,57 @@ export interface Tile {
   // I will not add providers so cat services is global.. to chewin on it.. if is convenient global o local service
   // providers: [ "Service" ]
 })
-export class CatComponent implements OnInit {
+export class CatComponent implements OnInit, OnDestroy {
 
-  public cat: Cat;
-  private catService: CatService;
+  private firstObsSubscription: Subscription;
+  public cat: Cat;       // passing to child component
+  public catId: string;
+
   @ViewChild('countLikes', {static: true}) countLikes: ElementRef;
 
   public index = 0;
-  @Input()
-  parentSubject: Subject<any>;
-  animationState: string;
 
-  tiles: Tile[] = [
-    {text: 'Random Cat', cols: 3, rows: 1, color: 'lightblue'},
-    {text: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
-    // {text: 'Three', cols: 1, rows: 1, color: 'lightpink'},
-    // {text: 'Four', cols: 2, rows: 1, color: '#DDBDF1'},
-  ];
-
-  constructor(catService: CatService) {
+  constructor(private catService: CatService) {
       this.catService = catService;
   }
 
   ngOnInit() {
+    const customObs = new Observable((observer) => {
+      let count = 0;
+      console.log('desde el observable');
+      console.log(count);
+      setInterval(() => {
+        observer.next(count);
+        count++;
+        // console.log('desde el observable');
+        // console.log(count);
+        if (count == 2) {
+          observer.complete();
+        }
+        if (count > 3) {
+          observer.error(new Error('Error en el observable'));
+        }
+      }, 1000);
+    });
+
+    this.firstObsSubscription = customObs.subscribe(data => {
+      console.log('desde el listening new data');
+      console.log(data);
+    },
+      error => {
+      console.log('ERROR: at observable');
+      }, () => {
+      console.log('Observable is completed!');
+      });
+    // this.firstObsSubscription = interval(1000).subscribe(count => {
+    //   console.log(count);
+    // });
     this.cat = this.catService.getCat(); // get template o Model Cat
     this.fetchNewRandomCat();            // get new cat and fill atributes in Cat Model
   }
-
+  ngOnDestroy(): void {
+    this.firstObsSubscription.unsubscribe();
+  }
   onPassingLocalReference(countLikes: ElementRef) {      // passing the entire HTML element like a string
       // onPassingLocalReference(countLikes: String) {   // passing the value
       console.log('BEGIN onPassingLocalReference');
@@ -55,14 +72,15 @@ export class CatComponent implements OnInit {
   }
 
   fetchNewRandomCat() {
+
       this.catService.getRandomCat().subscribe(
         (data) => {
           const randomCat = data.shift();
-          this.cat.id         = randomCat.id;
+          this.cat.id = randomCat.id;
           this.cat.pictureUrl = randomCat.url;
-          this.cat.height     = randomCat.height;
-          this.cat.width      = randomCat.width;
-          this.tiles[1].text  = (this.cat.categorie.toString());
+          this.cat.width = randomCat.width;
+          this.cat.height = randomCat.height;
+          this.catId = randomCat.id;  // this is for the summary section
         }
       );
   }

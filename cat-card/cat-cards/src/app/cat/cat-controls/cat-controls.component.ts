@@ -1,5 +1,5 @@
 import {Component, Injectable, OnInit} from '@angular/core';
-import {CatService} from '../cat/cat.service';
+import {CatService} from '../cat.service';
 
 @Component({
   selector: 'app-cat-controls',
