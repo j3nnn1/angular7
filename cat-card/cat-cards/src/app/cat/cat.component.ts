@@ -11,7 +11,7 @@ import { interval } from 'rxjs';
   // I will not add providers so cat services is global.. to chewin on it.. if is convenient global o local service
   // providers: [ "Service" ]
 })
-export class CatComponent implements OnInit, OnDestroy {
+export class CatComponent implements OnInit {
 
   private firstObsSubscription: Subscription;
   public cat: Cat;       // passing to child component
@@ -64,9 +64,9 @@ export class CatComponent implements OnInit, OnDestroy {
     this.cat = this.catService.getCat(); // get template o Model Cat
     this.fetchNewRandomCat();            // get new cat and fill atributes in Cat Model
   }
-  ngOnDestroy(): void {
-    this.firstObsSubscription.unsubscribe();
-  }
+  // ngOnDestroy(): void {
+  //   this.firstObsSubscription.unsubscribe();
+  // }
   onPassingLocalReference(countLikes: ElementRef) {      // passing the entire HTML element like a string
       // onPassingLocalReference(countLikes: String) {   // passing the value
       console.log('BEGIN onPassingLocalReference');

@@ -110,6 +110,7 @@ export class CatService {
   uploadCat(file: File) {
     const formData = new FormData();
     formData.append('file', file);
+    formData.append('sub_id', 'iwjaja');
 
     return this.http.post(
       'https://api.thecatapi.com/v1/images/upload',
@@ -127,4 +128,5 @@ export class CatService {
         this.httpOptions
     );
   }
+
 }
