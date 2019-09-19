@@ -1,4 +1,4 @@
-import {Component, Injectable, OnInit} from '@angular/core';
+import {Component, Injectable, Input, OnInit} from '@angular/core';
 import {CatService} from '../cat.service';
 
 @Component({
@@ -11,6 +11,7 @@ import {CatService} from '../cat.service';
 
 export class CatControlsComponent implements OnInit {
 
+  @Input() catVotingId: string;
 
   constructor(private catService: CatService) { }
 
@@ -22,11 +23,20 @@ export class CatControlsComponent implements OnInit {
       this.catService.getRandomCat().subscribe(
         (data) => {
           const randomCat = data.shift();
-          this.catService.cat. id         = randomCat.id;
+          this.catService.cat.id         = randomCat.id;
           this.catService.cat.pictureUrl = randomCat.url;
           this.catService.cat.height     = randomCat.height;
           this.catService.cat.width      = randomCat.width;
         }
       );
+  }
+  isLike() {
+    console.log('is like cat ', this.catVotingId);
+    this.catService.votingEmmiter.next(true);
+
+  }
+  dislike() {
+    console.log('dislike', this.catVotingId);
+    this.catService.votingEmmiter.next(true);
   }
 }

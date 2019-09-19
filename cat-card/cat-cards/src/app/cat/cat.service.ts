@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Cat } from './cat.model';
-import {HttpClient, HttpHeaders, HttpClientModule} from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpClientModule } from '@angular/common/http';
 import { CatInterface } from './interfaces/cat.interface';
 import { Voting } from './interfaces/voting.interface';
+import { Subject } from 'rxjs';
 
 @Injectable({providedIn: 'root'})
 // {
@@ -11,10 +12,11 @@ import { Voting } from './interfaces/voting.interface';
 // }
 export class CatService {
 
-  private defaultPictureUrl = '/assets/cat.jgp';
+
   private randomCatUrl      = 'https://api.thecatapi.com/v1/images/search';
   private votingCatUrl      = 'https://api.thecatapi.com/v1/votes';
   private userVote: Voting;
+
   private httpOptions = {
       headers: new HttpHeaders({'x-api-key': 'DEMO-API-KEY', 'Access-Control-Allow-Origin': '*' }),
     // observe: 'response' ??
@@ -24,23 +26,21 @@ export class CatService {
   public cat: Cat;
   public cats: Cat[] = [
     {
-      "id": 'Loading Cat',
-      "pictureUrl": "/assets/cat.jpg",
-      "height": 23,
-      'width': 30,
-      "categorieName": "Loading Cat",
-      "categorie": 1,
-      "name": "Loading Cat"
+      id: 'Loading Cat',
+      pictureUrl: '/assets/cat.jpg',
+      height: 23,
+      width: 30,
+      categorieName: 'Loading Cat',
+      categorie: 1,
+      name: 'Loading Cat'
     }
   ];
+
+  votingEmmiter = new Subject<boolean>();
 
   constructor(private http: HttpClient) {
     // init
     this.cat = this.cats[0];
-  }
-
-  logInitCatService() {
-    console.log('desde la clase Cat Services');
   }
 
   /*

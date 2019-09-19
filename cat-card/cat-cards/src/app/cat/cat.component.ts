@@ -16,6 +16,7 @@ export class CatComponent implements OnInit, OnDestroy {
   private firstObsSubscription: Subscription;
   public cat: Cat;       // passing to child component
   public catId: string;
+  private catVoting = false;
 
   @ViewChild('countLikes', {static: true}) countLikes: ElementRef;
 
@@ -26,33 +27,37 @@ export class CatComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    const customObs = new Observable((observer) => {
-      let count = 0;
-      console.log('desde el observable');
-      console.log(count);
-      setInterval(() => {
-        observer.next(count);
-        count++;
-        // console.log('desde el observable');
-        // console.log(count);
-        if (count == 2) {
-          observer.complete();
-        }
-        if (count > 3) {
-          observer.error(new Error('Error en el observable'));
-        }
-      }, 1000);
+    this.catService.votingEmmiter.subscribe(didVote => {
+      this.catVoting = didVote;
     });
 
-    this.firstObsSubscription = customObs.subscribe(data => {
-      console.log('desde el listening new data');
-      console.log(data);
-    },
-      error => {
-      console.log('ERROR: at observable');
-      }, () => {
-      console.log('Observable is completed!');
-      });
+    // const customObs = new Observable((observer) => {
+    //   let count = 0;
+    //   console.log('desde el observable');
+    //   console.log(count);
+    //   setInterval(() => {
+    //     observer.next(count);
+    //     count++;
+    //     // console.log('desde el observable');
+    //     // console.log(count);
+    //     if (count == 2) {
+    //       observer.complete();
+    //     }
+    //     if (count > 3) {
+    //       observer.error(new Error('Error en el observable'));
+    //     }
+    //   }, 1000);
+    // });
+    //
+    // this.firstObsSubscription = customObs.subscribe(data => {
+    //   console.log('desde el listening new data');
+    //   console.log(data);
+    // },
+    //   error => {
+    //   console.log('ERROR: at observable');
+    //   }, () => {
+    //   console.log('Observable is completed!');
+    //   });
     // this.firstObsSubscription = interval(1000).subscribe(count => {
     //   console.log(count);
     // });
@@ -80,7 +85,7 @@ export class CatComponent implements OnInit, OnDestroy {
           this.cat.pictureUrl = randomCat.url;
           this.cat.width = randomCat.width;
           this.cat.height = randomCat.height;
-          this.catId = randomCat.id;  // this is for the summary section
+          this.catVoting = false;
         }
       );
   }
