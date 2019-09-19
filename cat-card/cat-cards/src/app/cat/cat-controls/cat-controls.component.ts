@@ -1,5 +1,6 @@
 import {Component, Injectable, Input, OnInit} from '@angular/core';
 import {CatService} from '../cat.service';
+import {Voting} from "../interfaces/voting.interface";
 
 @Component({
   selector: 'app-cat-controls',
@@ -12,6 +13,7 @@ import {CatService} from '../cat.service';
 export class CatControlsComponent implements OnInit {
 
   @Input() catVotingId: string;
+  userVote = {image_id: this.catVotingId, sub_id: 'iwjaja', value: 0};
 
   constructor(private catService: CatService) { }
 
@@ -27,16 +29,35 @@ export class CatControlsComponent implements OnInit {
           this.catService.cat.pictureUrl = randomCat.url;
           this.catService.cat.height     = randomCat.height;
           this.catService.cat.width      = randomCat.width;
+          this.catService.didVote        = false;
         }
       );
+    this.catService.votingEmmiter.next(false);
   }
   isLike() {
-    console.log('is like cat ', this.catVotingId);
+    this.userVote.value = 1;
+    this.userVote.image_id = this.catVotingId;
+    this.catService.votingCat(this.userVote).subscribe(
+      data => {
+        console.log('voting ok');
+      },
+      error => {
+        console.log('error voting!');
+      });
+
     this.catService.votingEmmiter.next(true);
 
   }
   dislike() {
-    console.log('dislike', this.catVotingId);
+    this.userVote.value = 0;
+    this.userVote.image_id = this.catVotingId;
+    this.catService.votingCat(this.userVote).subscribe(
+      data => {
+      console.log('voting ok');
+    },
+      error => {
+      console.log('error voting!');
+    });
     this.catService.votingEmmiter.next(true);
   }
 }

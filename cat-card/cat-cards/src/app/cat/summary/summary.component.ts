@@ -24,8 +24,8 @@ export class SummaryComponent implements OnInit, OnChanges {
   }
   ngOnChanges(changes: SimpleChanges) {
     const catSearchId: SimpleChange = changes.catSearchId;
-    console.log('prev value: ', catSearchId.previousValue);
-    console.log('got name: ', catSearchId.currentValue);
+    // console.log('prev value: ', catSearchId.previousValue);
+    // console.log('got name: ', catSearchId.currentValue);
     this.tiles[0].text = 'id: ' + this.catSearchId;
     this.tiles[1].text = 'width:' + this.catWidth + ' height: ' + this.catHeight;
   }

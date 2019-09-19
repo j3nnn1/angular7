@@ -15,7 +15,7 @@ export class CatService {
 
   private randomCatUrl      = 'https://api.thecatapi.com/v1/images/search';
   private votingCatUrl      = 'https://api.thecatapi.com/v1/votes';
-  private userVote: Voting;
+  public didVote = false;
 
   private httpOptions = {
       headers: new HttpHeaders({'x-api-key': 'DEMO-API-KEY', 'Access-Control-Allow-Origin': '*' }),
@@ -119,6 +119,7 @@ export class CatService {
   // https://api.thecatapi.com/v1/votes
   // get with auth key to get my votes
   votingCat(userVote: Voting) {
+    console.log('cat service::votingCat ', userVote);
 
     return this.http.post(
         this.votingCatUrl,
