@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Subject} from 'rxjs';
+import { environment } from '../environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -11,6 +12,9 @@ export class AppComponent {
 
   parentSubject: Subject<string> = new Subject();
 
+  constructor() {
+    console.log(environment.jennivar);
+  }
   cardAnimation(value) {
     this.parentSubject.next(value);
   }
