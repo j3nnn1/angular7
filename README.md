@@ -34,3 +34,7 @@ This is a temporary adjustment which will NOT be required anymore once Angular 9
 
 
 ng generate directive better-highlight
+
+ng generate pipe filter
+ng generate pipe pipename
+
